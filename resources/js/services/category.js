@@ -1,17 +1,17 @@
-const category_url = "http://127.0.0.1:8000/api/category";
+import url from "../url";
 import axios from "axios";
 const category = {};
 
 category.list = async() =>{
-    const url = category_url + "/index";
-    const res = await axios.get(url)
+    const res = await axios.get(`${url}/api/category/index`)
     .then(response=>{return response.data;})
     .catch(error => {return error;})
     return res;
 }
 
 category.save = async(data)=>{
-    const res = await axios.post(category_url,data)
+    
+    const res = await axios.post(`${url}/api/category`,data)
     .then(response=>{return response.data;})
     .catch(error => {return error;})
     return res;
